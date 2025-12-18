@@ -1,28 +1,46 @@
-console.log(100);
+let firstName = "Daniel";
+let lastName = "Park";
 
-console.log("Hello World");
+console.log(firstName, lastName);
 
-console.log(20, "hello", true);
+var age = 50;
+console.log(age);
 
-const x = 144000;
+age = 100;
+console.log(age);
 
-console.log(x);
+let score;
+score = 1;
 
-console.error("Alert");
+console.log(score);
 
-console.warn("Warning");
+if (true) {
+  score = score + 1;
+}
 
-console.table([
-  { name: "Daniel", email: "daniel@test.com" },
-  { name: "Jason", email: "jason@test.com" },
-]);
+console.log(score);
 
-console.group("simple");
-console.log(x);
-console.error("Hey");
-console.warn("Please");
-console.groupEnd();
+const x = 100;
+const arr = [1, 2, 3, 4, 5];
 
-const styles = "padding: 10px; background-color: white; color: green";
+console.log(arr);
 
-console.log("%cHello Daniel", styles);
+arr.push(6);
+console.log(arr);
+
+const person = {
+  name: "Daniel",
+  age: 50,
+};
+
+console.log(person);
+
+person.age = 51;
+person.email = "daniel@test.com";
+console.log(person);
+
+// Declare multiple values at once
+let a, b, c;
+
+a = false;
+console.log(a);
