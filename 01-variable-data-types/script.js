@@ -1,48 +1,16 @@
-console.log("### Strings ###");
+console.log("### Capitalize Challenge ###");
 
-let x;
+const myString = "developer";
 
-const name = "Daniel";
-const age = 50;
+let myNewString;
 
-x = "Hello, my name is " + name + " and I am " + age + " years old.";
+// Solution 1
+myNewString = myString.charAt(0).toUpperCase() + myString.substring(1);
 
-// Template Literals
-x = `Hello, my name is ${name} and I am ${age} years old.`;
+// Solution 2
+myNewString = myString[0].toUpperCase() + myString.substring(1);
 
-// String Properties and Methods
-const s = new String("Hello World");
+// Solution 3
+myNewString = `${myString[0].toUpperCase()}${myString.substring(1)}`;
 
-x = typeof s;
-
-x = s.length;
-
-// Access value by key
-x = s[0];
-
-x = s.__proto__;
-
-x = s.toUpperCase();
-x = s.toLowerCase();
-
-x = s.charAt(0);
-
-x = s.indexOf("W");
-
-x = s.substring(1, 5);
-x = s.substring(7);
-
-x = s.slice(-11, -6);
-
-x = "         Hello World       ";
-x = s.trim();
-
-x = s.replace("World", "Daniel");
-
-x = s.includes("Hello");
-
-x = s.valueOf();
-
-x = s.split("");
-
-console.log(x);
+console.log(myNewString);
