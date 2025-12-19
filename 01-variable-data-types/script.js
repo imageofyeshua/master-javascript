@@ -1,26 +1,48 @@
-console.log("Type Conversion");
+console.log("Operators");
 
-let amount = "hello";
+// 1. Arithmetic Operators
 
-// Convert string to number
-// amount = parseInt(amount);
-// amount = +amount;
-// amount = Number(amount);
+let x;
 
-// Convert number to string
-// amount = amount.toString();
-// amount = String(amount);
+x = 5 + 5;
+x = 5 - 5;
+x = 5 * 5;
+x = 5 / 5;
+x = 7 % 5;
 
-// Convert string to decimal
-// amount = parseFloat(amount);
+// Concatenation
+x = "Hello" + " " + "World";
 
-// Convert number to boolean
-// amount = Boolean(amount);
+// Exponent
+x = 2 ** 3;
 
-// Case for NaN result
-console.log(Math.sqrt(-1));
-console.log(1 + NaN);
-console.log(undefined + undefined);
-console.log("foo" / 2);
+// Increment
+x = 1;
+x = x + 1;
+x++;
 
-console.log(amount, typeof amount);
+// Decrement
+x = x - 1;
+x--;
+
+// 2. Assignment Operators
+
+x = 10;
+x += 5;
+x -= 5;
+x /= 5;
+x %= 5;
+x **= 5;
+
+// 3. Comparison Operators
+
+x = 2 == "2";
+x = 2 === "2"; // value && type comparison
+x = 2 != "2";
+x = 2 !== "2";
+x = 10 > 5;
+x = 10 >= 5;
+x = 10 < 5;
+x = 10 <= 5;
+
+console.log(x);
