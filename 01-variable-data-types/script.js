@@ -1,25 +1,25 @@
-console.log("### Numbers ###");
+console.log("### Math ###");
 
-let x;
+// console.log(Math); // Print Math Object
 
-const num = new Number(5);
+x = Math.sqrt(9);
 
-x = num.toString();
+x = Math.abs(-5);
 
-x = num.toString().length;
+x = Math.round(4.67);
 
-x = num.toFixed(2);
+x = Math.ceil(6.87);
 
-x = num.toPrecision(3);
+x = Math.floor(6.87);
 
-x = num.toExponential(2);
+x = Math.pow(2, 4);
 
-x = num.toLocaleString("en-US");
+x = Math.min(4, 5, 3);
 
-x = num.valueOf();
+x = Math.max(4, 5, 3);
 
-x = Number.MAX_VALUE;
-x = Number.MIN_VALUE;
+x = Math.random();
 
-console.log(x, typeof x);
-console.log(num);
+x = Math.floor(Math.random() * 10 + 1);
+
+console.log(x);
