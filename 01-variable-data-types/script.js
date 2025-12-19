@@ -1,19 +1,48 @@
-console.log("Coercion");
+console.log("### Strings ###");
 
 let x;
 
-x = 5 + "5";
-x = 5 + Number("5");
-x = 5 * "5";
-x = 5 + null; // null coerced to 0
+const name = "Daniel";
+const age = 50;
 
-x = Number(null);
-x = Number(false);
-x = Number(true);
+x = "Hello, my name is " + name + " and I am " + age + " years old.";
 
-x = 5 + true;
-x = 5 + false;
+// Template Literals
+x = `Hello, my name is ${name} and I am ${age} years old.`;
 
-x = 5 + undefined;
+// String Properties and Methods
+const s = new String("Hello World");
 
-console.log(x, typeof x);
+x = typeof s;
+
+x = s.length;
+
+// Access value by key
+x = s[0];
+
+x = s.__proto__;
+
+x = s.toUpperCase();
+x = s.toLowerCase();
+
+x = s.charAt(0);
+
+x = s.indexOf("W");
+
+x = s.substring(1, 5);
+x = s.substring(7);
+
+x = s.slice(-11, -6);
+
+x = "         Hello World       ";
+x = s.trim();
+
+x = s.replace("World", "Daniel");
+
+x = s.includes("Hello");
+
+x = s.valueOf();
+
+x = s.split("");
+
+console.log(x);
