@@ -1,16 +1,25 @@
-console.log("### Capitalize Challenge ###");
+console.log("### Numbers ###");
 
-const myString = "developer";
+let x;
 
-let myNewString;
+const num = new Number(5);
 
-// Solution 1
-myNewString = myString.charAt(0).toUpperCase() + myString.substring(1);
+x = num.toString();
 
-// Solution 2
-myNewString = myString[0].toUpperCase() + myString.substring(1);
+x = num.toString().length;
 
-// Solution 3
-myNewString = `${myString[0].toUpperCase()}${myString.substring(1)}`;
+x = num.toFixed(2);
 
-console.log(myNewString);
+x = num.toPrecision(3);
+
+x = num.toExponential(2);
+
+x = num.toLocaleString("en-US");
+
+x = num.valueOf();
+
+x = Number.MAX_VALUE;
+x = Number.MIN_VALUE;
+
+console.log(x, typeof x);
+console.log(num);

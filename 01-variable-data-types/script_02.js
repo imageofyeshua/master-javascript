@@ -1,3 +1,5 @@
+console.log("### Variables & Constants ###");
+
 let firstName = "Daniel";
 let lastName = "Park";
 

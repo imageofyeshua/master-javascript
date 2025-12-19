@@ -1,4 +1,4 @@
-console.log("Primitive vs. Reference");
+console.log("### Primitive vs. Reference ###");
 
 // Primitive values : stored on the stack
 const name = "John";

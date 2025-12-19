@@ -1,3 +1,5 @@
+console.log("### Data Types ###");
+
 // String
 const firstName = "Eunice";
 const output = firstName;

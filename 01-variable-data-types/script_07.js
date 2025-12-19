@@ -1,4 +1,4 @@
-console.log("Coercion");
+console.log("### Coercion ###");
 
 let x;
 

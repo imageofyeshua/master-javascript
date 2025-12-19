@@ -1,3 +1,5 @@
+console.log("### Comments ###");
+
 // This is a single line of code
 console.log(100);
 

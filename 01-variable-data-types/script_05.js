@@ -1,4 +1,4 @@
-console.log("Type Conversion");
+console.log("### Type Conversion ###");
 
 let amount = "hello";
 
