@@ -1,25 +1,63 @@
-console.log("### Math ###");
+console.log("### Dates & Times ###");
 
-// console.log(Math); // Print Math Object
+let d;
 
-x = Math.sqrt(9);
+// d = new Date();
 
-x = Math.abs(-5);
+// d = d.toString();
 
-x = Math.round(4.67);
+d = new Date(2021, 0, 10, 12, 30, 0);
 
-x = Math.ceil(6.87);
+d = new Date("2021-07-10T12:30:00");
+d = new Date("07/10/2021 12:30:00");
+d = new Date("2022-07-10");
+d = new Date("07-10-2022 12:30:00");
 
-x = Math.floor(6.87);
+d = new Date();
 
-x = Math.pow(2, 4);
+d = d.getTime();
+d = d.valueOf();
 
-x = Math.min(4, 5, 3);
+d = new Date(1766139890420);
 
-x = Math.max(4, 5, 3);
+d = Math.floor(Date.now() / 1000); // Timestamps in seconds
 
-x = Math.random();
+let x;
+let y = new Date("12/20/2025");
 
-x = Math.floor(Math.random() * 10 + 1);
+x = y.toString();
+
+x = y.getTime();
+x = y.valueOf();
+
+x = y.getFullYear();
+x = y.getMonth() + 1;
+x = y.getDate();
+
+x = y.getHours();
+x = y.getMinutes();
+x = y.getSeconds();
+x = y.getMilliseconds();
+
+x = `${y.getFullYear()}-${y.getMonth() + 1}-${y.getDate()}`;
+
+x = Intl.DateTimeFormat("ko-KR").format(y);
+x = Intl.DateTimeFormat("default").format(y);
+x = Intl.DateTimeFormat("en-US").format(y);
+
+x = Intl.DateTimeFormat("default", { month: "long" }).format(y);
+
+x = y.toLocaleString("default", { month: "short" });
+
+x = y.toLocaleString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  timeZone: "Asia/Seoul",
+});
 
 console.log(x);
