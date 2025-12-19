@@ -1,40 +1,40 @@
-console.log("### Creating Arrays ###");
+console.log("### Nesting, Concat & Spread Operator ###");
 
 let x;
 
-// Array Literal
-const numbers = [12, 45, 66, 33, 23];
+const fruits = ["apple", "pear", "orange"];
+const berries = ["strawberry", "blueberry", "raspberry"];
 
-// Array Constructor
-const fruits = new Array("Orange", "Apple", "Pear");
+// fruits.push(berries);
 
-x = numbers[0];
+// x = fruits[3][1];
 
-x = numbers[0] + numbers[2];
+const allFruits = [fruits, berries];
 
-x = `My favorite fruit is an ${fruits[1]}`;
+x = allFruits[1][0];
 
-x = numbers.length;
+x = fruits.concat(berries);
 
-fruits[2] = "Grape";
-fruits[fruits.length] = "Blueberry";
-fruits[fruits.length] = "Peach";
+// Spread Operator (...)
+x = [...fruits, berries];
+x = [...fruits, ...berries];
 
-numbers.pop();
-numbers.push(100);
-numbers.unshift(99);
-numbers.shift();
-numbers.reverse();
+// Flatten Arrays
+const arr = [1, 2, [3, 4], 5, [6, 7], 8];
+x = arr.flat();
 
-x = numbers.includes(100);
-x = numbers.indexOf(33);
+// Static Methods on Array Object
 
-x = numbers.slice(1, 4);
+x = Array.isArray("Hello");
 
-// x = numbers.splice(1, 4); // change original array
+x = Array.from("12345"); // String to Array
 
-x = numbers.splice(1, 4).reverse().toString().charAt(0);
+const a = 1;
+const b = 2;
+const c = 3;
 
+x = Array.of(a, b, c);
+
+// console.log(fruits);
+// console.log(berries);
 console.log(x);
-console.log(numbers);
-console.log(fruits);
