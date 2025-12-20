@@ -1,41 +1,55 @@
-console.log("### Object Literals ###");
+console.log("### Object Methods ###");
+
+let x;
+
+const todo = new Object();
+
+todo.id = 1;
+todo.name = "Buy Butter";
+todo.completed = false;
+
+x = todo;
 
 const person = {
-  name: "John Doe",
-  age: 30,
-  isAdmin: true,
   address: {
-    street: "123 Main St",
-    city: "Lacey",
-    state: "WA",
+    coords: {
+      lat: 43.23434,
+      lng: -54.3423,
+    },
   },
-  hobbies: ["music", "sports"],
 };
 
-x = person.name;
-x = person["age"];
-x = person.address.city;
-x = person.hobbies[0];
+x = person.address.coords.lat;
 
-person.name = "Jane Doe";
-person["isAdmin"] = false;
-
-delete person.age;
-
-// Add new property
-person.hasChildren = true;
-
-person.greet = function () {
-  console.log(`Hello, my name is ${this.name}`);
+const obj1 = {
+  a: 1,
+  b: 2,
 };
 
-person.greet();
-
-const man = {
-  first_name: "Daniel",
-  last_name: "Park",
+const obj2 = {
+  c: 3,
+  d: 4,
 };
 
-x = man["first_name"];
+const obj3 = { ...obj1, ...obj2 };
+const obj4 = Object.assign({}, obj1, obj2);
+
+const todos = [
+  { id: 1, name: "Buy Butter" },
+  { id: 2, name: "Pickup Kids" },
+  { id: 3, name: "Takeout Trash" },
+];
+
+x = todos[0].name;
+
+x = Object.keys(todo);
+
+x = Object.keys(todo).length;
+
+x = Object.values(todo);
+
+x = Object.entries(todo);
+
+x = todo.hasOwnProperty("name");
 
 console.log(x);
