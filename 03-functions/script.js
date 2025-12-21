@@ -1,74 +1,97 @@
-console.log("### Scopes ###");
+console.log("### Function Expressions ###");
 
-// alert("Ohh");
-// console.log(window.innerHeight);
+// Hoisting
+console.log(addDollarSign(100));
 
-const x = 100;
-
-console.log(x, "in global");
-
-function run() {
-  console.log(window.innerHeight);
-  console.log(x, "in function");
+// Function Declaration
+function addDollarSign(value) {
+  return "$" + value;
 }
 
-run();
+// Function Expression
+const addPlusSign = function (value) {
+  return "+" + value;
+};
 
-if (true) {
-  const y = 200;
-  console.log(x, "in block");
-  console.log(x + y);
+console.log(addPlusSign(200));
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+// Arrow Function Syntax
+const add = (a, b) => {
+  return a + b;
+};
+
+// Implicit Return
+const subtract = (a, b) => a - b;
+
+const double = (a) => a * 2;
+
+// Returning an Object
+const createObj = () => ({
+  name: "Daniel",
+});
+
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((num) => {
+  console.log(num ** 2);
+});
+
+numbers.forEach((n) => console.log(n * 2));
+
+console.log(add(1, 2));
+console.log(subtract(10, 2));
+console.log(double(3));
+console.log(createObj());
+
+// IIFE (Immediately Invoked Function Expression)
+(function () {
+  const user = "Park";
+  console.log(user);
+
+  const hello = () => console.log("Hello from the IIFFE");
+  hello();
+})();
+
+(function (name) {
+  console.log("Hello " + name);
+})("Shawn");
+
+(function hello() {
+  console.log("Hello");
+})();
+
+// Challenge 1
+// function getCelsius(f) {
+//   const celsius = ((f - 32) * 5) / 9;
+//   return celsius;
+// }
+
+const getCelsius = (f) => Math.floor(((f - 32) * 5) / 9);
+
+console.log(Math.floor(getCelsius(98)));
+
+// Challenge 2
+function minMax(arr) {
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  // console.log("Min:", min);
+  // console.log("Max:", max);
+  return {
+    min,
+    max,
+  };
 }
 
-function add() {
-  const x = 1;
-  const y = 50;
-  console.log(x + y);
-}
+console.log(minMax([1, 2, 3, 4, 5]));
 
-add();
+((length, width) => {
+  const area = length * width;
 
-for (let i = 0; i <= 10; i++) {
-  console.log(i);
-}
+  const output = `The area of a rectangle with a length of ${length} and a width of ${width} is ${area}`;
 
-// var is not block scope
-// var varaible is added into window object
-if (true) {
-  const a = 500;
-  let b = 600;
-  var c = 700;
-}
-
-console.log(c);
-
-function run() {
-  var d = 144;
-  console.log(d);
-}
-
-run();
-
-const foo = 1;
-var bar = 2;
-
-function first() {
-  const x = 100;
-
-  function second() {
-    const y = 200;
-    console.log(x + y);
-  }
-  second();
-}
-
-first();
-
-if (true) {
-  const x = 123;
-
-  if (x === 123) {
-    const y = 456;
-    console.log(x + y);
-  }
-}
+  console.log(output);
+})(20, 10);
