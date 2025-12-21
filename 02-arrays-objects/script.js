@@ -1,55 +1,32 @@
-console.log("### Object Methods ###");
+console.log("### Jason ###");
 
-let x;
+const post = {
+  id: 1,
+  title: "Post One",
+  body: "This is the body",
+};
 
-const todo = new Object();
+// Convert to JSON string
+const str = JSON.stringify(post);
 
-todo.id = 1;
-todo.name = "Buy Butter";
-todo.completed = false;
+// Parse JSON
+const obj = JSON.parse(str);
 
-x = todo;
-
-const person = {
-  address: {
-    coords: {
-      lat: 43.23434,
-      lng: -54.3423,
-    },
+const posts = [
+  {
+    id: 1,
+    title: "Post One",
+    body: "This is the body",
   },
-};
-
-x = person.address.coords.lat;
-
-const obj1 = {
-  a: 1,
-  b: 2,
-};
-
-const obj2 = {
-  c: 3,
-  d: 4,
-};
-
-const obj3 = { ...obj1, ...obj2 };
-const obj4 = Object.assign({}, obj1, obj2);
-
-const todos = [
-  { id: 1, name: "Buy Butter" },
-  { id: 2, name: "Pickup Kids" },
-  { id: 3, name: "Takeout Trash" },
+  {
+    id: 2,
+    title: "Post Two",
+    body: "This is the body",
+  },
 ];
 
-x = todos[0].name;
+const str2 = JSON.stringify(posts);
 
-x = Object.keys(todo);
-
-x = Object.keys(todo).length;
-
-x = Object.values(todo);
-
-x = Object.entries(todo);
-
-x = todo.hasOwnProperty("name");
-
-console.log(x);
+console.log(str);
+console.log(obj);
+console.log(str2);
