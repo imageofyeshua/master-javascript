@@ -1,97 +1,44 @@
-console.log("### Function Expressions ###");
+console.log("### Execution Context ###");
 
-// Hoisting
-console.log(addDollarSign(100));
+/*
+## Execution Context Phases
+1. Create the global object(browser = window, Node.js = global)
+2. Create the 'this' object and bint it to the global object
+3. Setup memory heap for storing variables and function references
+4. Store functions and variables in global execution context and set to "undefined"
 
-// Function Declaration
-function addDollarSign(value) {
-  return "$" + value;
+## Execution Phase
+1. Execute code line by line
+2. Create a new execution context for each function call
+*/
+
+const x = 100;
+const y = 50;
+
+function getSum(n1, n2) {
+  const sum = n1 + n2;
+  return sum;
 }
 
-// Function Expression
-const addPlusSign = function (value) {
-  return "+" + value;
-};
+const sum1 = getSum(x, y);
+const sum2 = getSum(10, 5);
 
-console.log(addPlusSign(200));
+console.log(sum1, sum2);
 
-// function add(a, b) {
-//   return a + b;
-// }
+// CallStack
 
-// Arrow Function Syntax
-const add = (a, b) => {
-  return a + b;
-};
-
-// Implicit Return
-const subtract = (a, b) => a - b;
-
-const double = (a) => a * 2;
-
-// Returning an Object
-const createObj = () => ({
-  name: "Daniel",
-});
-
-const numbers = [1, 2, 3, 4, 5];
-
-numbers.forEach((num) => {
-  console.log(num ** 2);
-});
-
-numbers.forEach((n) => console.log(n * 2));
-
-console.log(add(1, 2));
-console.log(subtract(10, 2));
-console.log(double(3));
-console.log(createObj());
-
-// IIFE (Immediately Invoked Function Expression)
-(function () {
-  const user = "Park";
-  console.log(user);
-
-  const hello = () => console.log("Hello from the IIFFE");
-  hello();
-})();
-
-(function (name) {
-  console.log("Hello " + name);
-})("Shawn");
-
-(function hello() {
-  console.log("Hello");
-})();
-
-// Challenge 1
-// function getCelsius(f) {
-//   const celsius = ((f - 32) * 5) / 9;
-//   return celsius;
-// }
-
-const getCelsius = (f) => Math.floor(((f - 32) * 5) / 9);
-
-console.log(Math.floor(getCelsius(98)));
-
-// Challenge 2
-function minMax(arr) {
-  const min = Math.min(...arr);
-  const max = Math.max(...arr);
-  // console.log("Min:", min);
-  // console.log("Max:", max);
-  return {
-    min,
-    max,
-  };
+function first() {
+  console.log("first...");
+  second();
 }
 
-console.log(minMax([1, 2, 3, 4, 5]));
+function second() {
+  console.log("second...");
+  third();
+}
 
-((length, width) => {
-  const area = length * width;
+function third() {
+  console.log("third...");
+}
 
-  const output = `The area of a rectangle with a length of ${length} and a width of ${width} is ${area}`;
-
-  console.log(output);
-})(20, 10);
+first();
