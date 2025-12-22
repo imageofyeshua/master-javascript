@@ -1,19 +1,64 @@
-console.log("### Switch Statement ###");
+console.log("### Truthy & Falsy ###");
 
-const d = new Date("December 17, 1995 03:24:00");
-const month = d.getMonth();
-console.log(month);
+const email = "text@test.com";
 
-switch (month) {
-  case month >= 1 && month <= 3:
-    console.log("Its Cold");
-    break;
-  case month >= 4 && month <= 6:
-    console.log("Its Warm");
-    break;
-  case month >= 7 && month <= 9:
-    console.log("Its Hot");
-    break;
-  default:
-    console.log("It's Chilly");
+if (email) {
+  console.log("You passed in an email");
 }
+
+console.log(Boolean(email));
+
+/*
+Falsy Values:
+- false
+- 0
+- "" or '' (Empty string)
+- null
+- undefined
+- NaN
+*/
+
+const x = NaN;
+
+if (x) {
+  console.log("This is truthy");
+} else {
+  console.log("This is falsy");
+}
+
+console.log(Boolean(x));
+
+// Truthy and Falsy Caveats
+const children = 0;
+
+if (!isNaN(children)) {
+  console.log(`You have ${children} children`);
+} else {
+  console.log("Please enter number of children");
+}
+
+// Checking for empty arrays
+const posts = ["Post One", "Post Two"];
+console.log(posts.length);
+
+if (posts.length > 0) {
+  console.log("List Posts");
+} else {
+  console.log("No Posts to List");
+}
+
+// Checking for empty objects
+const user = {
+  name: "John",
+};
+
+if (Object.keys(user).length) {
+  console.log("List User");
+} else {
+  console.log("No User");
+}
+
+// Loose Equality (==)
+console.log(false == 0);
+console.log("" == 0);
+console.log(null == undefined);
