@@ -1,64 +1,73 @@
-console.log("### Truthy & Falsy ###");
+console.log("### Logical Operators ###");
 
-const email = "text@test.com";
+console.log(10 < 20 && 30 > 15 && 40 > 30);
+console.log(10 > 20 || 30 < 15);
 
-if (email) {
-  console.log("You passed in an email");
-}
+// && - Will return first falsy value or the last value
+let a;
 
-console.log(Boolean(email));
+a = 10 && 20;
+a = 10 && 20 && 30;
+a = 10 && 0 && 30;
+a = 10 && "" && 0 && 30;
 
-/*
-Falsy Values:
-- false
-- 0
-- "" or '' (Empty string)
-- null
-- undefined
-- NaN
-*/
+console.log(a);
 
-const x = NaN;
-
-if (x) {
-  console.log("This is truthy");
-} else {
-  console.log("This is falsy");
-}
-
-console.log(Boolean(x));
-
-// Truthy and Falsy Caveats
-const children = 0;
-
-if (!isNaN(children)) {
-  console.log(`You have ${children} children`);
-} else {
-  console.log("Please enter number of children");
-}
-
-// Checking for empty arrays
 const posts = ["Post One", "Post Two"];
-console.log(posts.length);
+posts.length > 0 && console.log(posts[0]);
 
-if (posts.length > 0) {
-  console.log("List Posts");
-} else {
-  console.log("No Posts to List");
+// || - Will return first truthy value or the last value
+let b;
+
+b = 10 || 20;
+b = 0 || 20;
+b = 0 || null || "";
+
+console.log(b);
+
+// ?? - Return the right side operand when the left is null or undefined
+let c;
+
+c = 10 ?? 20;
+c = null ?? 20;
+c = undefined ?? 30;
+c = 0 ?? 30;
+c = "" ?? 30;
+
+console.log(c);
+
+// ||= assigns the right side value only if the left is a falsy value.
+
+let x = false;
+
+if (!x) {
+  x = 10;
 }
 
-// Checking for empty objects
-const user = {
-  name: "John",
-};
+x = x || 10;
 
-if (Object.keys(user).length) {
-  console.log("List User");
-} else {
-  console.log("No User");
+x ||= 10;
+
+console.log(x);
+
+// &&= assigns the right side value only if the left is a truthy value.
+let y = 20;
+
+if (y) {
+  y = 40;
 }
 
-// Loose Equality (==)
-console.log(false == 0);
-console.log("" == 0);
-console.log(null == undefined);
+console.log(y);
+
+// ??= assigns the right side value only if the left is null or undefined.
+let z = null;
+
+if (z === null || z === undefined) {
+  z = 60;
+}
+
+z = z ?? 60;
+
+z ??= 60;
+
+console.log(z);
