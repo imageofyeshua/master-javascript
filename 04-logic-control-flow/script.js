@@ -1,73 +1,41 @@
-console.log("### Logical Operators ###");
+console.log("### Ternary Operator ###");
 
-console.log(10 < 20 && 30 > 15 && 40 > 30);
-console.log(10 > 20 || 30 < 15);
+const age = 19;
 
-// && - Will return first falsy value or the last value
-let a;
-
-a = 10 && 20;
-a = 10 && 20 && 30;
-a = 10 && 0 && 30;
-a = 10 && "" && 0 && 30;
-
-console.log(a);
-
-const posts = ["Post One", "Post Two"];
-posts.length > 0 && console.log(posts[0]);
-
-// || - Will return first truthy value or the last value
-let b;
-
-b = 10 || 20;
-b = 0 || 20;
-b = 0 || null || "";
-
-console.log(b);
-
-// ?? - Return the right side operand when the left is null or undefined
-let c;
-
-c = 10 ?? 20;
-c = null ?? 20;
-c = undefined ?? 30;
-c = 0 ?? 30;
-c = "" ?? 30;
-
-console.log(c);
-
-// ||= assigns the right side value only if the left is a falsy value.
-
-let x = false;
-
-if (!x) {
-  x = 10;
+// Using an if statement
+if (age >= 18) {
+  console.log("You can vote!");
+} else {
+  console.log("You cannot vote!");
 }
 
-x = x || 10;
+// Using a ternary operator
+age >= 18 ? console.log("You can vote!") : console.log("You cannot vote!");
 
-x ||= 10;
+// Assigning a conditional value to a variable
+const canVote = age >= 18 ? true : false;
 
-console.log(x);
+console.log(canVote);
 
-// &&= assigns the right side value only if the left is a truthy value.
-let y = 20;
+// Multiple statements
 
-if (y) {
-  y = 40;
-}
+const auth = true;
+// let redirect;
 
-console.log(y);
+// if (auth) {
+//   alert("Welcome to the dashboard");
+//   redirect = "/dashboard";
+// } else {
+//   alert("Access Denied");
+//   redirect = "/login";
+// }
 
-// ??= assigns the right side value only if the left is null or undefined.
-let z = null;
+// const redirect = auth
+//   ? (alert("Welcome"), "/dashboard")
+//   : (alert("Oh, No!"), "/login");
 
-if (z === null || z === undefined) {
-  z = 60;
-}
+// console.log(redirect);
 
-z = z ?? 60;
+auth ? console.log("Welcome Aboard!") : null;
 
-z ??= 60;
-
-console.log(z);
+auth && console.log("Welcome Aboard!");
