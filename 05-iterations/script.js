@@ -1,47 +1,31 @@
-console.log("### For Loop ###");
+console.log("### FizzBuzz ###");
 
-for (let i = 0; i <= 10; i++) {
-  if (i === 7) {
-    console.log("7 is my lucky number");
+// For loop
+for (let i = 1; i <= 100; i++) {
+  if (i % 15 === 0) {
+    console.log("FizzBuzz");
+  } else if (i % 5 === 0) {
+    console.log("Buzz");
+  } else if (i % 3 === 0) {
+    console.log("Fizz");
   } else {
-    console.log("Number " + i);
+    console.log(i);
   }
 }
 
-// Nested loops
-for (let i = 1; i <= 10; i++) {
-  console.log("Number " + i);
+// While loop
 
-  for (let j = 1; j <= 10; j++) {
-    console.log(`${i} * ${j} = ${i * j}`);
-  }
-}
+let j = 1;
 
-// Loop through an array
-const names = ["Brad", "Sam", "Sara", "John", "Tim"];
-
-for (let i = 0; i < names.length; i++) {
-  if (names[i] === "John") {
-    console.log(`${names[i]} is the best!`);
+while (j <= 100) {
+  if (j % 15 === 0) {
+    console.log("FizzBuzz");
+  } else if (j % 5 === 0) {
+    console.log("Buzz");
+  } else if (j % 3 === 0) {
+    console.log("Fizz");
   } else {
-    console.log(names[i]);
+    console.log(j);
   }
-}
-
-// Break
-for (let i = 0; i <= 20; i++) {
-  if (i === 15) {
-    console.log("Breaking...");
-    break;
-  }
-  console.log(i);
-}
-
-// Continue
-for (let i = 0; i <= 20; i++) {
-  if (i === 13) {
-    console.log("Skipping 13...");
-    continue;
-  }
-  console.log(i);
+  j++;
 }
