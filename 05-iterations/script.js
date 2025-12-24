@@ -1,31 +1,51 @@
-console.log("### FizzBuzz ###");
+console.log("### For of & in Loop ###");
 
-// For loop
-for (let i = 1; i <= 100; i++) {
-  if (i % 15 === 0) {
-    console.log("FizzBuzz");
-  } else if (i % 5 === 0) {
-    console.log("Buzz");
-  } else if (i % 3 === 0) {
-    console.log("Fizz");
-  } else {
-    console.log(i);
-  }
+let users = ["Daniel", "Jason", "Eunice", "Issac"];
+let items = [
+  { id: 1, name: "Daniel" },
+  { id: 2, name: "Jason" },
+  { id: 3, name: "Eunice" },
+];
+
+for (user of users) {
+  console.log(user);
 }
 
-// While loop
+for (item of items) {
+  console.log(`${item.id} : ${item.name}`);
+}
 
-let j = 1;
+let str = "Hallowed Be Thy Name";
 
-while (j <= 100) {
-  if (j % 15 === 0) {
-    console.log("FizzBuzz");
-  } else if (j % 5 === 0) {
-    console.log("Buzz");
-  } else if (j % 3 === 0) {
-    console.log("Fizz");
-  } else {
-    console.log(j);
-  }
-  j++;
+// Loop over string
+for (letter of str) {
+  console.log(letter);
+}
+
+// Loop over map
+const map = new Map();
+
+map.set("name", "John");
+map.set("id", 12);
+map.set("age", 52);
+
+for (const [key, value] of map) {
+  console.log(`${key} : ${value}`);
+}
+
+const colorObj = {
+  color1: "red",
+  color2: "orange",
+  color3: "blue",
+  color4: "green",
+};
+
+for (const key in colorObj) {
+  console.log(key, colorObj[key]);
+}
+
+const colorArr = ["red", "green", "blue", "yellow"];
+
+for (const key in colorArr) {
+  console.log(colorArr[key]);
 }
