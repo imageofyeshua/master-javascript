@@ -1,26 +1,53 @@
-console.log("### Array ForEach ###");
+console.log("### Array Filter ###");
 
-const socials = ["Twitter", "LinkedIn", "Facebook", "Instagram"];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12];
 
-// console.log(socials.__proto__);
-
-// socials.forEach(function (element) {
-//   console.log(element);
+// const evenNumbers = numbers.filter(function (number) {
+//   return number % 2 === 0;
 // });
 
-socials.forEach((item, index, arr) => console.log(`${index} - ${item}`, arr));
+// Short version
+// const evenNumbers = numbers.filter((number) => number % 2 === 0);
 
-function logSocials(social) {
-  console.log(social);
-}
+// Same with forEach
+// const evenNumbers = [];
+// numbers.forEach((number) => {
+//   if (number % 2 === 0) {
+//     evenNumbers.push(number);
+//   }
+// });
 
-socials.forEach(logSocials);
+// console.log(evenNumbers);
 
-const socialObj = [
-  { name: "Twitter", url: "https://twitter.com" },
-  { name: "Facebook", url: "https://facebook.com" },
-  { name: "LinkedIn", url: "https://linkedin.com" },
-  { name: "Instagram", url: "https://instagram.com" },
+const companies = [
+  { name: "Company One", category: "Finance", start: 1981, end: 2004 },
+  { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+  { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+  { name: "Company Four", category: "Finance", sltart: 1989, end: 2010 },
+  { name: "Company Five", category: "Technology", start: 2009, end: 2010 },
+  { name: "Company Six", category: "Retail", start: 1987, end: 2010 },
+  { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+  { name: "Company Eight", category: "Retail", start: 1981, end: 1989 },
+  { name: "Company Nine", category: "Technology", start: 2011, end: 2023 },
 ];
 
-socialObj.forEach((item, index) => console.log(index, item.url));
+// Get only retail companies
+const retailCompanies = companies.filter(
+  (company) => company.category === "Retail"
+);
+
+console.log(retailCompanies);
+
+// Get companies that started in or after 1980 and ended in or before 2005
+const earlyCompanies = companies.filter(
+  (company) => company.start >= 1980 && company.end <= 2005
+);
+
+console.log(earlyCompanies);
+
+// get companies that lasted 10 year or more
+const longCompanies = companies.filter(
+  (company) => company.end - company.start >= 10
+);
+
+console.log(longCompanies);
