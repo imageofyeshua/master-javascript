@@ -1,51 +1,26 @@
-console.log("### For of & in Loop ###");
+console.log("### Array ForEach ###");
 
-let users = ["Daniel", "Jason", "Eunice", "Issac"];
-let items = [
-  { id: 1, name: "Daniel" },
-  { id: 2, name: "Jason" },
-  { id: 3, name: "Eunice" },
+const socials = ["Twitter", "LinkedIn", "Facebook", "Instagram"];
+
+// console.log(socials.__proto__);
+
+// socials.forEach(function (element) {
+//   console.log(element);
+// });
+
+socials.forEach((item, index, arr) => console.log(`${index} - ${item}`, arr));
+
+function logSocials(social) {
+  console.log(social);
+}
+
+socials.forEach(logSocials);
+
+const socialObj = [
+  { name: "Twitter", url: "https://twitter.com" },
+  { name: "Facebook", url: "https://facebook.com" },
+  { name: "LinkedIn", url: "https://linkedin.com" },
+  { name: "Instagram", url: "https://instagram.com" },
 ];
 
-for (user of users) {
-  console.log(user);
-}
-
-for (item of items) {
-  console.log(`${item.id} : ${item.name}`);
-}
-
-let str = "Hallowed Be Thy Name";
-
-// Loop over string
-for (letter of str) {
-  console.log(letter);
-}
-
-// Loop over map
-const map = new Map();
-
-map.set("name", "John");
-map.set("id", 12);
-map.set("age", 52);
-
-for (const [key, value] of map) {
-  console.log(`${key} : ${value}`);
-}
-
-const colorObj = {
-  color1: "red",
-  color2: "orange",
-  color3: "blue",
-  color4: "green",
-};
-
-for (const key in colorObj) {
-  console.log(key, colorObj[key]);
-}
-
-const colorArr = ["red", "green", "blue", "yellow"];
-
-for (const key in colorArr) {
-  console.log(colorArr[key]);
-}
+socialObj.forEach((item, index) => console.log(index, item.url));
