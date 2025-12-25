@@ -1,42 +1,33 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
 
-// initialize the scene
-const scene = new THREE.Scene();
+// init
 
-// add objects to the scene
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: "red" });
-
-const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cubeMesh);
-
-// initialize the camera
 const camera = new THREE.PerspectiveCamera(
-  75,
+  70,
   window.innerWidth / window.innerHeight,
   0.01,
-  200
+  10
 );
-camera.position.z = 5;
+camera.position.z = 1;
 
-// initialize the renderer
-const canvas = document.querySelector("canvas.threejs");
-const renderer = new THREE.WebGLRenderer({
-  canvas: canvas,
-});
+const scene = new THREE.Scene();
 
+const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+const material = new THREE.MeshNormalMaterial();
+
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setAnimationLoop(animation);
+document.body.appendChild(renderer.domElement);
 
-// instantiate the controls
-const controls = new OrbitControls(camera, canvas);
-controls.enableDamping = true;
-controls.autoRotate = true;
+// animation
 
-const renderloop = () => {
-  controls.update();
+function animation(time) {
+  mesh.rotation.x = time / 2000;
+  mesh.rotation.y = time / 1000;
+
   renderer.render(scene, camera);
-  window.requestAnimationFrame(renderloop);
-};
-
-renderloop();
+}
