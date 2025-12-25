@@ -1,29 +1,26 @@
-console.log("### Array Filter ###");
+console.log("### Array Map ###");
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// const evenNumbers = numbers.filter(function (number) {
-//   return number % 2 === 0;
-// });
+const doubledNumbers = numbers.map((number) => number * 2);
 
-// Short version
-// const evenNumbers = numbers.filter((number) => number % 2 === 0);
+console.log(doubledNumbers);
 
 // Same with forEach
-// const evenNumbers = [];
-// numbers.forEach((number) => {
-//   if (number % 2 === 0) {
-//     evenNumbers.push(number);
-//   }
-// });
 
-// console.log(evenNumbers);
+const doubledNumbers2 = [];
+
+numbers.forEach((number) => {
+  doubledNumbers2.push(number * 2);
+});
+
+console.log(doubledNumbers2);
 
 const companies = [
   { name: "Company One", category: "Finance", start: 1981, end: 2004 },
   { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
   { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
-  { name: "Company Four", category: "Finance", sltart: 1989, end: 2010 },
+  { name: "Company Four", category: "Finance", start: 1989, end: 2010 },
   { name: "Company Five", category: "Technology", start: 2009, end: 2010 },
   { name: "Company Six", category: "Retail", start: 1987, end: 2010 },
   { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
@@ -31,23 +28,51 @@ const companies = [
   { name: "Company Nine", category: "Technology", start: 2011, end: 2023 },
 ];
 
-// Get only retail companies
-const retailCompanies = companies.filter(
-  (company) => company.category === "Retail"
-);
+// Create an array of company names
+const companyNames = companies.map((company) => company.name);
 
-console.log(retailCompanies);
+console.log(companyNames);
 
-// Get companies that started in or after 1980 and ended in or before 2005
-const earlyCompanies = companies.filter(
-  (company) => company.start >= 1980 && company.end <= 2005
-);
+// Create an array with just company and category
+const companyInfo = companies.map((company) => {
+  return {
+    name: company.name,
+    category: company.category,
+  };
+});
 
-console.log(earlyCompanies);
+console.log(companyInfo);
 
-// get companies that lasted 10 year or more
-const longCompanies = companies.filter(
-  (company) => company.end - company.start >= 10
-);
+// Create an array of objects with the name and the length of each company in years
+const companyYears = companies.map((company) => {
+  return {
+    name: company.name,
+    length: company.end - company.start,
+  };
+});
 
-console.log(longCompanies);
+console.log(companyYears);
+
+// Chain map methods
+const squareAndDouble = numbers
+  .map((number) => Math.sqrt(number))
+  .map((sqrt) => sqrt * 2);
+
+const squareAndDouble2 = numbers
+  .map(function (number) {
+    return Math.sqrt(number);
+  })
+  .map(function (sqrt) {
+    return sqrt * 2;
+  })
+  .map(function (sqrtDoubled) {
+    return sqrtDoubled * 3;
+  });
+
+console.log(squareAndDouble);
+console.log(squareAndDouble2);
+
+// Chaining different methods
+const evenDouble = numbers
+  .filter((number) => number % 2 === 0)
+  .map((number) => number * 2);
