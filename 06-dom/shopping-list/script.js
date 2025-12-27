@@ -1,43 +1,41 @@
-let output;
+console.log("### Dom Selector - Single ###");
 
-output = document.all;
-output = document.all[11];
-output = document.all.length;
+console.log(document.getElementById("app-title"));
+console.log(document.getElementById("app-title").id);
+console.log(document.getElementById("app-title").getAttribute("id"));
 
-output = document.documentElement;
+// Set attributes
+document.getElementById("app-title").title = "Shopping List";
+document.getElementById("app-title").setAttribute("class", "title");
 
-output = document.head;
-output = document.body;
+const title = document.getElementById("app-title");
 
-output = document.head.children;
-output = document.body.children;
+console.log(title.textContent);
 
-output = document.doctype;
-output = document.domain;
-output = document.URL;
-output = document.characterSet;
-output = document.contentType;
+title.textContent = "Hello World";
+title.innerText = "Hello Again";
+title.innerHTML = "<strong>Shopping List</strong>";
 
-output = document.forms;
-output = document.forms[0];
-output = document.forms[0].id;
-output = document.forms[0].method;
-output = document.forms[0].action;
+// Change styles
+title.style.color = "white";
+title.style.backgroundColor = "gray";
+title.style.padding = "10px";
+title.style.borderRadius = "10px";
 
-// document.forms[0].id = "new-id";
-output = document.links;
-output = document.links[0];
-output = document.links[0].href;
-output = document.links[0].href = "https://facebook.com";
-output = document.links[0].id = "google-link";
-output = document.links[0].className = "google-class";
-output = document.links[0].classList;
+// document.querySelector()
 
-output = document.images;
-output = document.images[0];
-output = document.images[0].src;
+console.log(document.querySelector("h1"));
+console.log(document.querySelector("#app-title"));
+console.log(document.querySelector(".container"));
+console.log(document.querySelector('input[type="text"]'));
+console.log(document.querySelector("li:nth-child(2)"));
 
-const forms = Array.from(document.forms);
-forms.forEach((form) => console.log(form));
+const secondItem = document.querySelector("li:nth-child(2)");
+secondItem.innerText = "Tangerine Juice";
+secondItem.style.color = "red";
 
-console.log(output);
+// Use these methods on other elements
+const list = document.querySelector("ul");
+console.log(list);
+const firstItem = list.querySelector("li");
+firstItem.style.color = "blue";
