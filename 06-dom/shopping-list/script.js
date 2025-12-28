@@ -1,49 +1,40 @@
-console.log("### Replace Elements ###");
+console.log("### Remove Elements ###");
 
-function replaceFirstItem() {
-  const firstItem = document.querySelector("li:first-child");
-
-  const li = document.createElement("li");
-  li.textContent = "Replaced First";
-
-  firstItem.replaceWith(li);
+function removeClearButton() {
+  const clearBtn = document.querySelector("#clear");
+  clearBtn.remove();
 }
 
-function replaceSecondItem() {
-  const secondItem = document.querySelector("li:nth-child(2)");
+function removeFirstItem() {
+  const ul = document.querySelector("ul");
+  const li = document.querySelector("li:first-child");
 
-  secondItem.outerHTML = "<li>Replaced Second</li>";
+  ul.removeChild(li);
 }
 
-function replaceAllItems() {
-  const lis = document.querySelectorAll("li");
-
-  // lis.forEach((item, index) => {
-  //   // item.outerHTML = "<li>Replace All</li>";
-  //   if (index === 1) {
-  //     item.innerHTML = "Second Item";
-  //   } else {
-  //     item.innerHTML = "Replace All";
-  //   }
-  // });
-
-  lis.forEach(
-    (item, index) =>
-      (item.outerHTML = index === 2 ? "<li>Third Item</li>" : "<li>Item</li>")
-  );
+function removeItem(itemNumber) {
+  const ul = document.querySelector("ul");
+  const li = document.querySelector(`li:nth-child(${itemNumber})`);
+  ul.removeChild(li);
 }
 
-function replaceChildHeading() {
-  const header = document.querySelector("header");
-  const h1 = document.querySelector("header h1");
-
-  const h2 = document.createElement("h2");
-  h2.id = "app-title";
-  h2.textContent = "Shopping List";
-  header.replaceChild(h2, h1);
+function removeItem2(itemNumber) {
+  const ul = document.querySelector("ul");
+  const li = document.querySelectorAll("li")[itemNumber - 1];
+  ul.removeChild(li);
 }
 
-replaceFirstItem();
-replaceSecondItem();
-replaceAllItems();
-replaceChildHeading();
+function removeItem3(itemNumber) {
+  const li = document.querySelectorAll("li");
+  li[itemNumber - 1].remove();
+}
+
+const removeItem4 = (itemNumber) =>
+  document.querySelectorAll("li")[itemNumber - 1].remove();
+
+removeClearButton();
+// removeFirstItem();
+// removeItem(2);
+// removeItem2(1);
+// removeItem3(3);
+removeItem4(1);
