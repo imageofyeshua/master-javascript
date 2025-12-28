@@ -1,66 +1,49 @@
-console.log("### Insert Elements ###");
+console.log("### Replace Elements ###");
 
-// insertAdjacentElement Example
-function insertElement() {
-  const filter = document.querySelector(".filter");
-
-  const h1 = document.createElement("h1");
-  h1.textContent = "insertAdjacentElement";
-
-  filter.insertAdjacentElement("beforebegin", h1);
-}
-
-// insertAdjacentText Example
-function insertText() {
-  const item = document.querySelector("li:first-child");
-
-  item.insertAdjacentText("beforebegin", "insertAdjacentText");
-}
-
-// insertAdjacentHTML Example
-function insertHTML() {
-  const clearBtn = document.querySelector("#clear");
-
-  clearBtn.insertAdjacentHTML("beforebegin", "<h2>insertAdjacentHTML</h2>");
-}
-
-// insertBefore Example
-function insertBeforeItem() {
-  const ul = document.querySelector("ul");
-
-  const li = document.createElement("li");
-  li.textContent = "insertBefore";
-
-  const thirdItem = document.querySelector("li:nth-child(3)");
-
-  ul.insertBefore(li, thirdItem);
-}
-
-// insertAfter Function
-function insertAfter(newEl, existingEl) {
-  existingEl.parentElement.insertBefore(newEl, existingEl.nextSibling);
-}
-
-function insertAfterItem() {
-  const li = document.createElement("li");
-  li.textContent = "Insert Me After!";
-
+function replaceFirstItem() {
   const firstItem = document.querySelector("li:first-child");
-  insertAfter(li, firstItem);
+
+  const li = document.createElement("li");
+  li.textContent = "Replaced First";
+
+  firstItem.replaceWith(li);
 }
 
-// insertElement();
-// insertText();
-// insertHTML();
-// insertBeforeItem();
-insertAfterItem();
+function replaceSecondItem() {
+  const secondItem = document.querySelector("li:nth-child(2)");
 
-/*
-<!-- beforebegin -->
-<p>
-    <!-- afterbegin -->
-    foo
-    <!-- beforeend -->
-</p>
-<!-- afterend -->
-*/
+  secondItem.outerHTML = "<li>Replaced Second</li>";
+}
+
+function replaceAllItems() {
+  const lis = document.querySelectorAll("li");
+
+  // lis.forEach((item, index) => {
+  //   // item.outerHTML = "<li>Replace All</li>";
+  //   if (index === 1) {
+  //     item.innerHTML = "Second Item";
+  //   } else {
+  //     item.innerHTML = "Replace All";
+  //   }
+  // });
+
+  lis.forEach(
+    (item, index) =>
+      (item.outerHTML = index === 2 ? "<li>Third Item</li>" : "<li>Item</li>")
+  );
+}
+
+function replaceChildHeading() {
+  const header = document.querySelector("header");
+  const h1 = document.querySelector("header h1");
+
+  const h2 = document.createElement("h2");
+  h2.id = "app-title";
+  h2.textContent = "Shopping List";
+  header.replaceChild(h2, h1);
+}
+
+replaceFirstItem();
+replaceSecondItem();
+replaceAllItems();
+replaceChildHeading();
