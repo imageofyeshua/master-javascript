@@ -1,43 +1,66 @@
-console.log("### innerHTML & createElement ###");
+console.log("### Insert Elements ###");
 
-// Quick & Dirty
-function createListItem(item) {
+// insertAdjacentElement Example
+function insertElement() {
+  const filter = document.querySelector(".filter");
+
+  const h1 = document.createElement("h1");
+  h1.textContent = "insertAdjacentElement";
+
+  filter.insertAdjacentElement("beforebegin", h1);
+}
+
+// insertAdjacentText Example
+function insertText() {
+  const item = document.querySelector("li:first-child");
+
+  item.insertAdjacentText("beforebegin", "insertAdjacentText");
+}
+
+// insertAdjacentHTML Example
+function insertHTML() {
+  const clearBtn = document.querySelector("#clear");
+
+  clearBtn.insertAdjacentHTML("beforebegin", "<h2>insertAdjacentHTML</h2>");
+}
+
+// insertBefore Example
+function insertBeforeItem() {
+  const ul = document.querySelector("ul");
+
   const li = document.createElement("li");
-  li.innerHTML = `${item} 
-  <button class="remove-item btn-link text-red">
-    <i class="fa-solid fa-xmark"></i>
-  </button>`;
+  li.textContent = "insertBefore";
 
-  document.querySelector(".items").appendChild(li);
+  const thirdItem = document.querySelector("li:nth-child(3)");
+
+  ul.insertBefore(li, thirdItem);
 }
 
-// Clean & Performant
-function createNewItem(item) {
+// insertAfter Function
+function insertAfter(newEl, existingEl) {
+  existingEl.parentElement.insertBefore(newEl, existingEl.nextSibling);
+}
+
+function insertAfterItem() {
   const li = document.createElement("li");
+  li.textContent = "Insert Me After!";
 
-  li.appendChild(document.createTextNode(item));
-
-  const button = createButton("remove-item btn-link text-red");
-
-  li.appendChild(button);
-
-  document.querySelector(".items").appendChild(li);
+  const firstItem = document.querySelector("li:first-child");
+  insertAfter(li, firstItem);
 }
 
-function createButton(classes) {
-  const button = document.createElement("button");
-  button.className = classes;
-  const icon = createIcon("fa-solid fa-xmark");
-  button.appendChild(icon);
-  return button;
-}
+// insertElement();
+// insertText();
+// insertHTML();
+// insertBeforeItem();
+insertAfterItem();
 
-function createIcon(classes) {
-  const icon = document.createElement("i");
-  icon.className = classes;
-  return icon;
-}
-
-createListItem("Eggs");
-createNewItem("Cheese");
-createNewItem("Sauce");
+/*
+<!-- beforebegin -->
+<p>
+    <!-- afterbegin -->
+    foo
+    <!-- beforeend -->
+</p>
+<!-- afterend -->
+*/
