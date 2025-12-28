@@ -1,15 +1,33 @@
-console.log("### Create & Append Elements ###");
+console.log("### innerHTML & createElement ###");
 
-const div = document.createElement("div");
-div.className = "my-element";
-div.id = "my-element";
-div.setAttribute("title", "My Element");
+// Quick & Dirty
+function createListItem(item) {
+  const li = document.createElement("li");
+  li.innerHTML = `${item} 
+  <button class="remove-item btn-link text-red">
+    <i class="fa-solid fa-xmark"></i>
+  </button>`;
 
-// div.innerText = "Hello World";
+  document.querySelector(".items").appendChild(li);
+}
 
-const text = document.createTextNode("Hello World");
-div.appendChild(text);
+// Clean & Performant
+function createNewItem(item) {
+  const li = document.createElement("li");
 
-// document.body.appendChild(div);
+  li.appendChild(document.createTextNode(item));
 
-document.querySelector("ul").appendChild(div);
+  const button = document.createElement("button");
+  button.className = "remove-item btn-link text-red";
+
+  const icon = document.createElement("i");
+  icon.className = "fa-solid fa-xmark";
+
+  button.appendChild(icon);
+  li.appendChild(button);
+
+  document.querySelector(".items").appendChild(li);
+}
+
+createListItem("Eggs");
+createNewItem("Cheese");
