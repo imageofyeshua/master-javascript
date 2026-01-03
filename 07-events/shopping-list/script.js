@@ -1,29 +1,34 @@
-const clearBtn = document.querySelector("#clear");
+const logo = document.querySelector("img")
 
-function onClear() {
-  const itemList = document.querySelector("ul");
-  const items = itemList.querySelectorAll("li");
-  //   itemList.innerHTML = "";
-
-  //   items.forEach((item) => item.remove());
-
-  while (itemList.firstChild) {
-    itemList.removeChild(itemList.firstChild);
+const onClick = () => console.log("click event")
+const onDoubleClick = () => {
+  if (document.body.style.backgroundColor !== "purple") {
+    document.body.style.backgroundColor = "purple",
+    document.body.style.color = "white"
+  } else {
+    document.body.style.backgroundColor = "white",
+    document.body.style.color = "black"
   }
 }
+const onRightClick = () => console.log("right click event")
+const onMouseDown = () => console.log("mouse down event")
+const onMouseUp = () => console.log("mouse up event")
+const onMouseWheel = () => console.log("mouse wheel event")
+const onMouseOver = () => console.log("mouse over event")
+const onMouseOut = () => console.log("mouse out event")
+const onDragStart = () => console.log("drag start event")
+const onDrag = () => console.log("drag event")
+const onDragEnd = () => console.log("drag end event")
 
-// JavaScript Event Listener
-// clearBtn.onclick = function () {
-//   alert("Clear Items");
-// };
-
-// addEventListener can have many functions
-// clearBtn.addEventListener("click", () => alert("Clear Items"));
-// clearBtn.addEventListener("click", () => console.log("Clear Items"));
-
-clearBtn.addEventListener("click", onClear);
-
-// Removes onClear Click Event after 5sec
-// setTimeout(() => clearBtn.removeEventListener("click", onClear), 5000);
-
-// setTimeout(() => clearBtn.click(), 5000);
+// Event Listener
+logo.addEventListener("click", onClick)
+logo.addEventListener("dblclick", onDoubleClick)
+logo.addEventListener("contextmenu", onRightClick)
+logo.addEventListener("mousedown", onMouseDown)
+logo.addEventListener("mouseup", onMouseUp)
+logo.addEventListener("wheel", onMouseWheel)
+logo.addEventListener("mouseover", onMouseOver)
+logo.addEventListener("mouseout", onMouseOut)
+logo.addEventListener("dragstart", onDragStart)
+logo.addEventListener("drag", onDrag)
+logo.addEventListener("dragend", onDragEnd)
