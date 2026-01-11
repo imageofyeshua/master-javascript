@@ -33,6 +33,11 @@ function onAddItemSubmit(e) {
     isEditMode = false;
   }
 
+  if (checkIfItemExists(newItem)) {
+    alert("That item already exists");
+    return;
+  }
+
   // Create item DOM element
   addItemToDOM(newItem);
 
@@ -98,6 +103,12 @@ function onClickItem(e) {
   } else {
     setItemToEdit(e.target);
   }
+}
+
+function checkIfItemExists(item) {
+  const itemsFromStorage = getItemsFromStorage();
+
+  return itemsFromStorage.includes(item);
 }
 
 function setItemToEdit(item) {
